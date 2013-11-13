@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome to Sinatra!</h1>
+  <p>Hello, world!</p>
+
+  <h2>Who's Tweets Would You Like to See?</h2>
+
+  <form name='check_tweets' action='/:username' method="GET">
+    <input type="text" name="twitter[username]">
+    <input type="submit">
+  </form>
+  
+  <% @view_tweets.each do |tweet| %>
+  <p> <%= tweet.text %> </p>
+  <% end %>
+
+</div>
+
