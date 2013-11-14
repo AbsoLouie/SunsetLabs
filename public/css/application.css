@@ -6,5 +6,9 @@
 }
 
 th {
-  text-align: left;
+  text-align: center;
+}
+
+#settings, .container, #signup, #login {
+text-align: center;
 }
