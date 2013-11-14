@@ -1930,8 +1930,10 @@ output {
   line-height: 1.428571429;
   color: #555555;
   vertical-align: middle;
-  background-color: #ffffff;
-  background-image: none;
+  /*background-color: #fff;*/
+  /*background-image: none;*/
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #DDD), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #DDD 1px, #FFFFFF 25px);
   border: 1px solid #cccccc;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2370,7 +2372,7 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-warning {
   color: #ffffff;
-  background-color: #f0ad4e;
+  background-color: #5C3399;
   border-color: #eea236;
 }
 
@@ -2380,7 +2382,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
   color: #ffffff;
-  background-color: #ed9c28;
+  background-color: #5C3399;
   border-color: #d58512;
 }
 

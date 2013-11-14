@@ -16,13 +16,18 @@
 <div class="container">
 
   <form action="/users/verify" method="get" class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <!-- <i class="fa fa-sun-o fa-spin fa-2x"> -->
+    <h2 class="signin_text" class="form-signin-heading">Please sign in</h2>
     <input type="text" class="form-control" placeholder="Email address" name="user[email]" required autofocus>
     <input type="password" name="user[password]" class="form-control" placeholder="Password" required>
-    <label class="checkbox">
+<!--     <label class="checkbox">
       <input type="checkbox" value="remember-me"> Remember me
-    </label>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </label> -->
+    <button class="btn btn-lg btn-warning btn-block signin_text" type="submit">Sign  in</button>
+    <p id="special_sauce"><i class="fa fa-sun-o fa-spin fa-5x"></i></p>
+
   </form>
 
+
 </div>
+

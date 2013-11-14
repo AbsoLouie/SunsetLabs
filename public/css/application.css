@@ -1,9 +1,14 @@
-/*.container {
+.container {
   margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
-}*/
+  width: 400px;
+  padding: 0px 30px 30px 30px;
+  /*border: 1px dotted black;*/
+  border-radius: 2em;
+  /*background-color: rgba(20, 0, 50, .5);*/
+  background-color: #f39c12;
+}
+
+
 
 th {
   text-align: center;
@@ -21,7 +26,8 @@ text-align: center;
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #140033;
+  background: url('../bg.png')
 }
 
 .form-signin {
@@ -57,4 +63,18 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.signin_text {
+  color: #fff;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+#special_sauce {
+  padding-top: 30px;
+  color: #fff;
+}
+
+.btn-warning:hover + #special_sauce {
+  color: red;
 }
