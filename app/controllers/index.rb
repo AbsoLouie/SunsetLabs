@@ -1,4 +1,5 @@
 enable :sessions
+include Twilioer
 
 get '/' do
   if session[:id]
@@ -39,8 +40,13 @@ get '/users/logout' do
 end
 
 post "/users/text_messages" do
-  p params
-  
+  client = Twilioer.start_client
+  client.account.messages.create(
+    :from => "17146602442",
+    :to => User.find_by_id(session[:id]).phone_number,
+    :body => params[:text]
+    )
+  redirect '/'
 end
 
 #### TODO
