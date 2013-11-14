@@ -3,7 +3,7 @@ enable :sessions
 get '/' do
   if session[:id]
     @user = User.find(session[:id])
-    erb :settings
+    erb :user_homepage
   else
     erb :login
   end
@@ -38,6 +38,9 @@ get '/users/logout' do
   redirect '/'
 end
 
+post "" do
+
+end
 
 #### TODO
 
