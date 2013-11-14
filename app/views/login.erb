@@ -1,4 +1,4 @@
-<div id="login">
+<!-- <div id="login">
   <form action="/users/verify" method="get">
 
     Email<input name="user[email]" type="email" placeholder="Dom@dom.com"/></br>
@@ -9,5 +9,20 @@
 
 
   <a href="/users/signup">Create an Account</a>
+
+</div> -->
+
+
+<div class="container">
+
+  <form action="/users/verify" method="get" class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" class="form-control" placeholder="Email address" name="user[email]" required autofocus>
+    <input type="password" name="user[password]" class="form-control" placeholder="Password" required>
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
 
 </div>
