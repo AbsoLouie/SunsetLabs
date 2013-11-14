@@ -7,7 +7,7 @@ module Twilioer
       ENV[key] = value
     end
 
-    Twilio::REST::Client.new ENV["account_sid"], ENV["auth_token"]
+    Twilio::REST::Client.new ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"]
   end
 
 end
