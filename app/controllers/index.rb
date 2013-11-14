@@ -20,10 +20,16 @@ post '/users/register' do
 end
 
 get '/users/verify' do
+
+  redirect "/" unless params[:user]
   user = User.find_by_email(params[:user][:email])
-  if user
+
+  redirect "/" if user.nil?
+
+  if user.password == params[:user][:password]
     session[:id] = user.id
   end
+
   redirect "/"
 end
 
@@ -37,3 +43,7 @@ end
 
 # post '/users/:id/edit' do
 # end
+
+#Logout display some pages
+#flash messages for incorrect passwords, etc..
+#cleanup verify
