@@ -13,10 +13,10 @@ gem 'thin'
 gem 'bcrypt-ruby'
 
 gem 'activesupport'
-gem 'activerecord'
+gem 'activerecord',  '~>3.2.6'
 
 gem 'rake'
-
+gem 'wunderground'
 gem 'shotgun'
 gem 'twilio-ruby'
 
