@@ -1,6 +1,5 @@
 enable :sessions
 include Twilioer
-
 get '/' do
   if session[:id]
     @user = User.find(session[:id])
@@ -40,11 +39,29 @@ get '/users/logout' do
 end
 
 post "/users/text_messages" do
+
   client = Twilioer.start_client
   client.account.messages.create(
     :from => "17146602442",
     :to => User.find_by_id(session[:id]).phone_number,
     :body => params[:text]
+    )
+  redirect '/'
+end
+
+post "/users/text_messages/sunset" do
+
+wunder = Wunderground.new('4e49c02d3a1533bd')
+state = 'CA'
+city = 'San_Francisco'
+astronomy = wunder.astronomy_for(state, city)
+
+
+  client = Twilioer.start_client
+  client.account.messages.create(
+    :from => "17146602442",
+    :to => User.find_by_id(session[:id]).phone_number,
+    :body => astronomy['sun_phase']['sunset']
     )
   redirect '/'
 end
