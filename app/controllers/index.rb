@@ -1,15 +1,49 @@
-#clean up routes
+enable :sessions
 
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  if session[:id]
+    @user = User.find(session[:id])
+    erb :settings
+  else
+    erb :login
+  end
 end
 
-get '/sign_up' do
-  erb :sign_up
+get '/users/signup' do
+  erb :signup
 end
 
-post '/sign_up' do
-  User.create(params[:user])
+post '/users/register' do
+  user = User.create(params[:user])
+  session[:id] = user.id
   redirect '/'
 end
+
+get '/users/verify' do
+
+  redirect "/" unless params[:user]
+  user = User.find_by_email(params[:user][:email])
+
+  redirect "/" if user.nil?
+
+  if user.password == params[:user][:password]
+    session[:id] = user.id
+  end
+
+  redirect "/"
+end
+
+get '/users/logout' do
+  session.clear
+  redirect '/'
+end
+
+
+#### TODO
+
+# post '/users/:id/edit' do
+# end
+
+#Logout display some pages
+#flash messages for incorrect passwords, etc..
+#cleanup verify
