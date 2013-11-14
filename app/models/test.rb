@@ -1,11 +1,11 @@
-require 'wunderground'
 
-wunder = Wunderground.new('4e49c02d3a1533bd')
 
-state = 'CA'
-city = 'San_Francisco'
+# wunder = Wunderground.new('4e49c02d3a1533bd')
 
-p astronomy = wunder.astronomy_for(state, city)
+# state = 'CA'
+# city = 'San_Francisco'
+
+# astronomy = wunder.astronomy_for(state, city)
 
 
 # astronomy['sun_phase']
