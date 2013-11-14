@@ -1,0 +1,11 @@
+<div id="user_homepage">
+
+<h1>Welcome <%= @user.name %></h1>
+
+<form action="/users/text_messages" method="post">
+  <input name="text" type="text">
+  <input type="submit" value="send text">
+</form>
+
+
+</div>

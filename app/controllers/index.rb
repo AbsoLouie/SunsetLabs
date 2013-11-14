@@ -38,8 +38,9 @@ get '/users/logout' do
   redirect '/'
 end
 
-post "" do
-
+post "/users/text_messages" do
+  p params
+  
 end
 
 #### TODO
