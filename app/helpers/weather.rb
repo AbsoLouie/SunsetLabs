@@ -25,13 +25,13 @@ module Weather
     state = 'CA'
     city = 'San_Francisco'
 
-    conditions = Weather.start_wunder.forecast_for(state, city)
+    conditions = Weather.start_wunder.conditions_for(state, city)
     c = conditions['current_observation']
-    params = { weather:           c['weather'], 
-               temp_f:            c['temp_f'], 
-               wind_string:       c['wind_string'], 
-               wind_dir:          c['wind_dir'], 
-               visibility_mi:     c['visibility_mi'], 
+    params = { weather:           c['weather'],
+               temp_f:            c['temp_f'],
+               wind_string:       c['wind_string'],
+               wind_dir:          c['wind_dir'],
+               visibility_mi:     c['visibility_mi'],
                precip_1hr_string: c['precip_1hr_string'] }
 
     save_to_db(:conditions, params)
