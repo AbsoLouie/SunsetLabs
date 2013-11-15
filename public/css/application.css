@@ -61,7 +61,36 @@ header #logout_link {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#mid_info {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#mid_info p {
+  font-size: 20px;
+}
+
+#mid_info a {
+  color: #ccc;
+  font-size: 15px;
+}
+
+.container_style {
+  /*border-radius: 9px;*/
+  background: #eee;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /*border-right: 1px solid black;*/
+
+/*  margin-right: 5px;
+  margin-left: 5px;*/
+}
+
+
+
 .user_page {
+/*  margin-left: 10px;
+  margin-right: 10px;*/
   width: 550px;
   color: #fff;
 }
@@ -134,7 +163,7 @@ text-align: center;
   border-bottom-right-radius: 0;
 }
 .form-control {
-  width: 50%;
+  width: 250px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
@@ -147,7 +176,7 @@ text-align: center;
 .btn {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 250px;
 
   margin-top: 10px;
   margin-bottom: 15px;

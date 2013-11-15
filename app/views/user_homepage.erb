@@ -1,32 +1,52 @@
+        <br>
 
-<div class="user_page container">
+<div class="row">
+
+<div class="col-md-8 col-md-offset-2 text-center container_style">
   <h2 class="form-signin-heading">Welcome, <%= @user.name %></h2>
-      <hr>
-    <h2>Communication Settings</h2>
-    <hr>
-  <!-- <div class="row"> -->
-    <h2>User Info</h2>
-    <hr>
+</div>
+</div>
 
-    <!-- <div id="user_page_form" class="col-md-6"> -->
-    <h2>Test Settings</h2>
-    <p>Check your settings by sending a test text message with the form below.</p>
+        <br>
 
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 ">
+    <div class="row">
+      <div class="col-md-4 text-center container_style">
+        <h2>Communication Settings</h2>
+        <p>You want sunsets<p>
+        <br>
 
-      <form action="/users/text_messages" method="post">
-        <textarea class="form-control" name="text" required type="text" placeholder="send yourself a test text message..."></textarea>
-        <button class="btn btn-lg btn-primary btn-block" value="send text" type="submit">Send text</button>
-      </form>
+      </div>
 
-      <br>
-      <p>Send yourself a sunset alert with the button below.</p>
+      <div id="mid_info" class="col-md-4 text-center container_style">
+        <h2>User Info</h2>
+        <p>Name: <%= @user.name %></p>
+        <p>Phone number: <%= @user.phone_number %></p>
+        <p>Email: <%= @user.email %></p>
+        <a href="#">- edit info - </a>
+        <br>
+        <br>
+      </div>
 
-      <form action="/users/text_messages/sunset" method="post">
-        <button id="testbutt" class="btn btn-lg btn-primary btn-block" value="Login!" type="submit">Send sunset text</button>
-      </form>
+      <div class="col-md-4 text-center container_style">
+        <h2>Test Settings</h2>
+        <p>Check your settings by sending a test text message with the form below.</p>
 
+        <form action="/users/text_messages" method="post">
+          <textarea class="form-control" name="text" required type="text" placeholder="send yourself a test text message..."></textarea>
+          <button class="btn btn-lg btn-primary btn-block" value="send text" type="submit">Send text</button>
+        </form>
+
+        <br>
+        <p>Send yourself a sunset alert with the button below.</p>
+
+        <form action="/users/text_messages/sunset" method="post">
+          <button id="testbutt" class="btn btn-lg btn-primary btn-block" value="Login!" type="submit">Send sunset text</button>
+        </form>
+
+      </div>
     </div>
-  <!-- </div> -->
 
-
+  </div>
 </div>
