@@ -55,7 +55,7 @@ end
 
 post "/users/text_messages/sunset" do
 
-  sunset_time = Sunset.find(1).sunset_time
+  sunset_time = Sunset.last.sunset_time
 
   client = Twilioer.start_client
   client.account.messages.create(
