@@ -137,6 +137,16 @@ desc "Run the specs"
 
 task :default  => :spec
 
+##### Initial Setup ############
+desc "Run this task on initial deployment"
+
+task :initial_setup do
+  puts "Starting setup"
+  system("rake update_sunsets")
+  system("rake update_conditions")
+  puts "Ending setup"
+end
+
 ##### Scheduled Tasks ##########
 
 desc "These tasks is called by the Heroku scheduler add-on"
@@ -145,6 +155,13 @@ task :update_sunsets do
   puts "starting"
   require APP_ROOT.join('app', 'helpers', 'weather.rb')
   Weather.get_sunset_time
+  puts "ending"
+end
+
+task :update_conditions do
+  puts "starting"
+  require APP_ROOT.join('app', 'helpers', 'weather.rb')
+  Weather.get_conditions
   puts "ending"
 end
 
