@@ -1,14 +1,224 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+body {
+  padding-top: 0;
+  padding-bottom: 40px;
+  /*background-color: black;*/
+  /*background: url('http://www.uiuos.net/static/C2wRF2j/sunset-wallpaper-desktop-background.jpg');*/
+  background: url('../sunset_remix.jpg');
+  background-attachment:fixed;
+  background-position:center;
+  background-size: 100% 100%;
+  font-family: 'Raleway Dots', cursive;
 }
 
-th {
+header {
   text-align: center;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255,255,255);
+  padding: 1px 0 1px 0;
+  /*position: relative;*/
+  /*display: inline-table;*/
+
+}
+
+header #name {
+  text-align: left;
+  font-family: 'Signika', sans-serif;
+  font-weight: bold;
+  font-size: 62px;
+  margin-left: 35px;
+  color: rgba(255,200,0,.8);
+
+}
+
+h2 {
+  padding-top: 12px 5px;
+}
+
+#name a {
+  color: rgba(255,200,0,.8);
+/*  margin-top: 0;
+*/
+}
+
+header #logout_link {
+  text-align: right;
+  margin-right: 15px;
+  margin-top: 20px;
+  float: right;
+  font-size: 20px;
+  color: #fff;
+  font-family: 'Raleway Dots', cursive;
+
+}
+
+.container {
+  /*margin: 20px auto;*/
+  /*margin-right: 50px;*/
+  margin-top: 30px;
+  width: 350px;
+  padding: 0px 20px 20px 20px;
+  /*border: 1px solid grey;*/
+  border-radius: 9px;
+  background: #eee;
+  /*float: right;*/
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#mid_info {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#mid_info p {
+  font-size: 20px;
+}
+
+#mid_info a {
+  color: #ccc;
+  font-size: 15px;
+}
+
+.container_style {
+  /*border-radius: 9px;*/
+  background: #eee;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /*border-right: 1px solid black;*/
+
+/*  margin-right: 5px;
+  margin-left: 5px;*/
+}
+
+
+
+.user_page {
+/*  margin-left: 10px;
+  margin-right: 10px;*/
+  width: 550px;
+  color: #fff;
+}
+
+#user_page_text {
+  color: #fff;
+  text-align: left;
+  font-size: 30px;
+}
+
+.current_weather {
+  margin: 20px auto;
+  /*margin-left: 70px;*/
+  margin-top: 40px;
+  /*width: 350px;*/
+  padding: 16px 60px 20px 60px;
+  /*border: 1px solid grey;*/
+  border-radius: 15px;
+  /*background: #eee;*/
+  /*float: left;*/
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  text-align: center;
+  font-weight: bold;
+  color: rgba(0,0,0,.6);
+  text-shadow: 2px 2px #ff0000;
+  font-family: 'Raleway Dots', cursive;
+}
+
+.current_weather h1 {
+  font-size: 40px;
+  font-family: 'Raleway Dots', cursive;
+  color: white;
+  font-weight: bold;
 }
 
 #user_homepage, .container, #signup, #login {
 text-align: center;
+}
+
+/**/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background: white;
+
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 10px;
+/*  margin-top: 30px;
+*/}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  margin-bottom: 15px;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-control {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  border: 1px solid #E65C00;
+  /*margin-bottom: 10px;*/
+  /*border-top-left-radius: 0;*/
+  /*border-top-right-radius: 0;*/
+}
+
+.btn {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  margin-top: 4px;
+  /*box-shadow: 10px 10px 5px #888888;*/
+  /*margin-bottom: 5px;*/
+
+  width: 250px;
+
+  margin-bottom: 15px;
+  /*width: 50%;*/
+  /*height: 40px;*/
+  /*padding-bottom: 20px;*/
+  background-color: #E65C00;
+  border: 1px solid #E65C00;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+
+.btn:hover {
+  background-color: #E65C00;
+  border: 1px solid black;
+}
+
+#create_new {
+  color: #fff;
+
+}
+
+.form-signin-heading {
+  color: #fff;
+  font-family: 'Raleway Dots', cursive;
+
 }

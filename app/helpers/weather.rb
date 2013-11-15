@@ -1,11 +1,11 @@
 module Weather
 
   def start_wunder
-  #   env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
+    # env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
 
-  #   env_config.each do |key, value|
-  #     ENV[key] = value
-  #   end
+    # env_config.each do |key, value|
+    #   ENV[key] = value
+    # end
 
     Wunderground.new ENV["api_key"]
   end
@@ -27,11 +27,11 @@ module Weather
 
     conditions = Weather.start_wunder.conditions_for(state, city)
     c = conditions['current_observation']
-    params = { weather:           c['weather'], 
-               temp_f:            c['temp_f'], 
-               wind_string:       c['wind_string'], 
-               wind_dir:          c['wind_dir'], 
-               visibility_mi:     c['visibility_mi'], 
+    params = { weather:           c['weather'],
+               temp_f:            c['temp_f'],
+               wind_string:       c['wind_string'],
+               wind_dir:          c['wind_dir'],
+               visibility_mi:     c['visibility_mi'],
                precip_1hr_string: c['precip_1hr_string'] }
 
     save_to_db(:conditions, params)
@@ -56,13 +56,15 @@ module Weather
     return 'Best Ever' if points == 6
   end
 
+
   def self.sunset_header
     time = Sunset.last.sunset_time
     quality = Weather.visibility_rating
-    tense1, tense2 = 'is', 'will be'
-    tense1, tense2 = 'was', 'was' if Time.now.to_s < time
 
-    "Today's sunset #{tense1} at #{time}, and it #{tense2} <span>#{quality}</span>."
+    tense1, tense2 = 'is', 'will be'
+    tense1, tense2 = 'was', 'was' if Time.now.to_s < latest.created_at.to_s
+
+    "Today's sunset #{tense1} at #{latest.sunset_time}, and it #{tense2} <span>#{quality}</span>."
   end
 
 

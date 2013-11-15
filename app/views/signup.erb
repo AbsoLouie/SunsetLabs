@@ -1,12 +1,21 @@
-<div id="signup">
-  <form action="/users" method="post">
+<div class="current_weather">
+  <p><%= erb :sunset_teaser %></p>
+</div>
 
-    Name<input name="user[name]" type="text" placeholder="Dom"/></br>
-    Email<input name="user[email]" type="email" placeholder="Dom@dom.com"/></br>
-    Phone Number<input name="user[phone_number]" type="text" placeholder="123-456-7890"/></br>
-    Password<input name="user[password]" type="password" placeholder="password"/></br>
-    <input value="Sign Up!" type="submit" /></br>
+<div class="container">
 
-  </form>
+
+  <div id="signup">
+    <form action="/users" method="post">
+      <h2 class="form-signin-heading">Sign up</h2>
+      <input class="form-control" required autofocus name="user[name]" type="text" placeholder="Name"/>
+      <input class="form-control" required name="user[email]" type="email" placeholder="Email address"/>
+      <input class="form-control" required name="user[phone_number]" type="text" placeholder="Phone number (123-456-7890)"/>
+      <input class="form-control" required name="user[password]" type="password" placeholder="password"/>
+      <button class="btn btn-lg btn-primary btn-block" value="Login!" type="submit">Sign up</button>
+
+    </form>
+
+  </div>
 
 </div>
