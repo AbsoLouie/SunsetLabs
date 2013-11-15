@@ -16,8 +16,14 @@
         <h2>Communication Settings</h2>
       </div>
 
-      <div class="col-md-4 text-center container_style">
+      <div id="mid_info" class="col-md-4 text-center container_style">
         <h2>User Info</h2>
+        <p>Name: <%= @user.name %></p>
+        <p>Phone number: <%= @user.phone_number %></p>
+        <p>Email: <%= @user.email %></p>
+        <a href="#">- edit info - </a>
+        <br>
+        <br>
       </div>
 
       <div class="col-md-4 text-center container_style">
