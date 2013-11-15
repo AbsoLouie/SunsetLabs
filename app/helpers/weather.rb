@@ -1,11 +1,11 @@
 module Weather
 
   def start_wunder
-    env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
+  #   env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
 
-    env_config.each do |key, value|
-      ENV[key] = value
-    end
+  #   env_config.each do |key, value|
+  #     ENV[key] = value
+  #   end
 
     Wunderground.new ENV["api_key"]
   end
@@ -16,7 +16,7 @@ module Weather
 
     astronomy = Weather.start_wunder.astronomy_for(state, city)
     sunset_time = astronomy['sun_phase']['sunset']
-    today = Format.time(sunset_time['hour'], sunset_time['minute'])
+    p today = Format.time(sunset_time['hour'], sunset_time['minute'])
     save_to_db(today)
   end
 
