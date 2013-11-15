@@ -18,7 +18,7 @@ get '/' do
 end
 
 get '/users/new' do
-  @sunset_header = Weather.format_header
+  @sunset_header = Weather.sunset_header
 
   erb :signup
 end
