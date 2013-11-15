@@ -24,7 +24,7 @@ module Weather
     state = 'CA'
     city = 'San_Francisco'
 
-    conditions = Weather.start_wunder.conditions_for(state, city)
+    conditions = Weather.start_wunder.forecast_for(state, city)
     c = conditions['current_observation']
     params = { weather:           c['weather'], 
                temp_f:            c['temp_f'], 
@@ -36,16 +36,17 @@ module Weather
     save_to_db(:conditions, params)
   end
 
-  def self.sunset_rating(weather, temp, wind, visibility, precip)
+  def self.sunset_rating
+    c = Condition.last
     points  = 0
-    points += 1 if weather          == 'Calm'
-    points += 1 if temp.to_i        >= 60
-    points += 1 if wind             == 'Calm'
-    points += 1 if visibility.to_i  >= 8
-    points += 1 if visibility.to_i  >= 10
-    points += 1 if visibility.to_i  >= 12
-    points -= 1 if precip.to_f      >= 0.01
-    points -= 3 if precip.to_f      >= 0.05
+    points += 1 if c.weather                     == 'Calm'
+    points += 1 if c.temp_f.to_i                 >= 60
+    points += 1 if c.wind_string                 == 'Calm'
+    points += 1 if c.visibility_mi.to_i          >= 8
+    points += 1 if c.visibility_mi.to_i          >= 10
+    points += 1 if c.visibility_mi.to_i          >= 12
+    points -= 1 if c.precip_1hr_string.to_f      >= 0.01
+    points -= 3 if c.precip_1hr_string.to_f      >= 0.05
     return 'Poor'      if points <  2
     return 'Decent'    if points == 2
     return 'Good'      if points >= 3
@@ -53,10 +54,17 @@ module Weather
     return 'Best Ever' if points == 6
   end
 
+  def self.format_header
+    time = Sunset.last.sunset_time
+    quality = Weather.sunset_rating.upcase
+    "Today's sunset #{tense1} at #{time}, and it #{tense2} be <span>#{quality}</span>"
+  end
+
+
   def save_to_db(type, params)
     Sunset.create(params) if type == :sunset
     Condition.create(params) if type == :conditions
   end
-  
+
 end
 

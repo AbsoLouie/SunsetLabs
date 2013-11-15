@@ -6,6 +6,9 @@ include AddonText
 
 
 get '/' do
+
+  @sunset_header = Weather.format_header
+
   if session[:id]
     @user = User.find(session[:id])
     erb :user_homepage
@@ -55,6 +58,7 @@ post "/users/text_messages" do
 end
 
 post "/users/text_messages/sunset" do
+
   message = AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
 
   client = Twilioer.start_client
@@ -67,10 +71,10 @@ post "/users/text_messages/sunset" do
   redirect '/'
 end
 
-# print 'weather: ', conditions['current_observation']['weather'], "\n"
-# print 'temp_f: ', conditions['current_observation']['temp_f'], "\n"
-# print 'wind_string: ', conditions['current_observation']['wind_string'], "\n"
-# print 'wind_dir: ', conditions['current_observation']['wind_dir'], "\n"
-# print 'visibility_mi: ', conditions['current_observation']['visibility_mi'], "\n"
-# print 'precip_1hr_string: ', conditions['current_observation']['precip_1hr_string'], "\n"
-
+  # p Sunset.last.sunset_time
+  # p c = Condition.last
+  # p Weather.sunset_rating(c.weather, 
+  #                         c.temp_f, 
+  #                         c.wind_string, 
+  #                         c.visibility_mi, 
+  #                         c.precip_1hr_string)
