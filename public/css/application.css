@@ -62,7 +62,8 @@ header #logout_link {
 }
 
 .user_page {
-  width: 50%;
+  width: 550px;
+  color: #fff;
 }
 
 #user_page_text {
@@ -133,6 +134,9 @@ text-align: center;
   border-bottom-right-radius: 0;
 }
 .form-control {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 5px;
   border: 1px solid #E65C00;
   /*margin-bottom: 10px;*/
@@ -143,10 +147,11 @@ text-align: center;
 .btn {
   margin-left: auto;
   margin-right: auto;
+  width: 50%;
 
   margin-top: 10px;
   margin-bottom: 15px;
-  width: 50%;
+  /*width: 50%;*/
   /*height: 40px;*/
   /*padding-bottom: 20px;*/
   background-color: #E65C00;

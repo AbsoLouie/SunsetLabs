@@ -2,35 +2,31 @@
 <div class="user_page container">
   <h2 class="form-signin-heading">Welcome, <%= @user.name %></h2>
       <hr>
+    <h2>Communication Settings</h2>
+    <hr>
+  <!-- <div class="row"> -->
+    <h2>User Info</h2>
+    <hr>
 
-  <div class="row">
-    <div id="user_page_text" class="col-md-6">
-<p><strong>This is your chance to learn about sunsets. You can choose things and you can select options and send texts. Also sunsets too.</strong></p>
-
-    </div>
-
-    <div id="user_page_form" class="col-md-6">
+    <!-- <div id="user_page_form" class="col-md-6"> -->
+    <h2>Test Settings</h2>
+    <p>Check your settings by sending a test text message with the form below.</p>
 
 
       <form action="/users/text_messages" method="post">
-        <textarea class="form-control" name="text" required type="text"></textarea>
+        <textarea class="form-control" name="text" required type="text" placeholder="send yourself a test text message..."></textarea>
         <button class="btn btn-lg btn-primary btn-block" value="send text" type="submit">Send text</button>
       </form>
 
-      <hr>
+      <br>
+      <p>Send yourself a sunset alert with the button below.</p>
 
       <form action="/users/text_messages/sunset" method="post">
         <button id="testbutt" class="btn btn-lg btn-primary btn-block" value="Login!" type="submit">Send sunset text</button>
       </form>
 
     </div>
-  </div>
+  <!-- </div> -->
 
 
 </div>
-
-<!--
-<div class="row">
-  <div class="col-md-6">.col-md-6</div>
-  <div class="col-md-6">.col-md-6</div>
-</div> -->
