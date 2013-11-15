@@ -1,11 +1,11 @@
 module Weather
 
   def start_wunder
-  #   env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
+    # env_config = YAML.load_file(APP_ROOT.join('config', 'wunderground.yaml'))
 
-  #   env_config.each do |key, value|
-  #     ENV[key] = value
-  #   end
+    # env_config.each do |key, value|
+    #   ENV[key] = value
+    # end
 
     Wunderground.new ENV["api_key"]
   end

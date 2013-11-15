@@ -3,7 +3,7 @@ body {
   padding-bottom: 40px;
   /*background-color: black;*/
   /*background: url('http://www.uiuos.net/static/C2wRF2j/sunset-wallpaper-desktop-background.jpg');*/
-  background: url('../sunset2.jpg');
+  background: url('../sunset_remix.jpg');
   background-attachment:fixed;
   background-position:center;
   background-size: 100% 100%;
@@ -25,20 +25,26 @@ header #name {
   text-align: left;
   font-family: 'Signika', sans-serif;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 62px;
   margin-left: 35px;
   color: rgba(255,200,0,.8);
+
+}
+
+h2 {
+  padding-top: 12px 5px;
 }
 
 #name a {
   color: rgba(255,200,0,.8);
-
+/*  margin-top: 0;
+*/
 }
 
 header #logout_link {
   text-align: right;
   margin-right: 15px;
-  margin-top: 25px;
+  margin-top: 20px;
   float: right;
   font-size: 20px;
   color: #fff;
@@ -46,12 +52,10 @@ header #logout_link {
 
 }
 
-
-
 .container {
   /*margin: 20px auto;*/
   /*margin-right: 50px;*/
-  margin-top: 40px;
+  margin-top: 30px;
   width: 350px;
   padding: 0px 20px 20px 20px;
   /*border: 1px solid grey;*/
@@ -85,13 +89,16 @@ header #logout_link {
   text-align: center;
   font-weight: bold;
   color: rgba(0,0,0,.6);
-
+  text-shadow: 2px 2px #ff0000;
+  font-family: 'Raleway Dots', cursive;
 }
 
 .current_weather h1 {
   font-size: 40px;
+  font-family: 'Raleway Dots', cursive;
+  color: white;
+  font-weight: bold;
 }
-
 
 #user_homepage, .container, #signup, #login {
 text-align: center;
@@ -101,7 +108,7 @@ text-align: center;
 
 .form-signin {
   max-width: 330px;
-  padding: 12px;
+  padding: 15px;
   margin: 0 auto;
   margin-bottom: 10px;
   background: white;
@@ -111,14 +118,15 @@ text-align: center;
 .form-signin .checkbox {
   font-family: 'Signika', sans-serif;
   margin-bottom: 10px;
-}
+/*  margin-top: 30px;
+*/}
 .form-signin .checkbox {
   font-weight: normal;
 }
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   height: auto;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -143,9 +151,10 @@ text-align: center;
 .btn {
   margin-left: auto;
   margin-right: auto;
-
-  margin-top: 10px;
-  margin-bottom: 15px;
+  font-weight: bold;
+  margin-top: 4px;
+  /*box-shadow: 10px 10px 5px #888888;*/
+  /*margin-bottom: 5px;*/
   width: 50%;
   /*height: 40px;*/
   /*padding-bottom: 20px;*/
@@ -158,8 +167,8 @@ text-align: center;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
-
 }
+
 
 .btn:hover {
   background-color: #E65C00;
@@ -168,9 +177,11 @@ text-align: center;
 
 #create_new {
   color: #fff;
-}
 
+}
 
 .form-signin-heading {
   color: #fff;
+  font-family: 'Raleway Dots', cursive;
+
 }

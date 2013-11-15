@@ -1,1 +1,1 @@
-<h1><%= @sunset_header %></h1>
+<h1><%= @sunset_header.split(",", 2).map {|split| "<p>#{split}</p>" }.join("\n") %></h1>
