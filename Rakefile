@@ -142,5 +142,8 @@ task :default  => :spec
 desc "This task is called by the Heroku scheduler add-on"
 
 task :update_sunsets do
-  "./app/helpers/test.rb"
+  puts "starting"
+  require APP_ROOT.join('app', 'helpers', 'weather.rb')
+  Weather.get_sunset_time
+  puts "ending"
 end
