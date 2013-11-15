@@ -18,7 +18,7 @@ module Weather
     sunset_time = astronomy['sun_phase']['sunset']
 
     today = Format.time(sunset_time['hour'], sunset_time['minute'])
-    save_to_db(:sunset, {sunset_time: today} )
+    save_to_db(:sunset, {sunset_time: today, military_time: "#{sunset_time['hour']}#{sunset_time['minute']}"} )
   end
 
   def self.get_conditions
@@ -35,9 +35,10 @@ module Weather
                precip_1hr_string: c['precip_1hr_string'] }
 
     save_to_db(:conditions, params)
+    # Condition.create(params)
   end
 
-  def self.sunset_rating
+  def self.visibility_rating  # TODO: rename usages
     c = Condition.last
     points  = 0
     points += 1 if c.weather                     == 'Calm'
@@ -55,11 +56,13 @@ module Weather
     return 'Best Ever' if points == 6
   end
 
-  def self.format_header
+
+  def self.sunset_header
     latest = Sunset.last
-    quality = Weather.sunset_rating.upcase
+    quality = Weather.visibility_rating
+
     tense1, tense2 = 'is', 'will be'
-    tense1, tense2 = 'was', 'was' if Time.now.to_s < latest.created_at.to_s
+    tense1, tense2 = 'was', 'was' if Time.now.strftime('%H%M').to_i > latest.military_time.to_i
 
     "Today's sunset #{tense1} at #{latest.sunset_time}, and it #{tense2} <span>#{quality}</span>."
   end
@@ -68,6 +71,32 @@ module Weather
   def save_to_db(type, params)
     Sunset.create(params) if type == :sunset
     Condition.create(params) if type == :conditions
+    Fullmoon.create(params) if type == :fullmoon 
+  end
+
+  ###############################################################
+  #############Fullmoon Functionality############################
+  ###############################################################
+
+  def self.get_fullmoon_today  # TODO: call
+    state = 'CA'
+    city = 'San_Francisco'
+    astronomy = Weather.start_wunder.astronomy_for(state, city)
+    percentIlluminated = astronomy['moon_phase']['percentIlluminated']
+    fullmoon = percentIlluminated.to_i > 97
+    save_to_db(:fullmoon, {fullmoon: fullmoon} )
+    
+  end
+
+  def self.fullmoon_header
+    day = Fullmoon.last.created_at.to_s[0..9]
+    quality = Weather.visibility_rating
+    
+    if Fullmoon.last.fullmoon
+      "Ladies and Gentlemen, there's a full moon tonight with <span>#{quality}</span> visibility."
+    else 
+      "The last full moon was on #{day} and had a <span>#{quality}</span> visibility."
+    end
   end
 
 end
