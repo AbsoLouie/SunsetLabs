@@ -6,7 +6,8 @@ include AddonText
 
 get '/' do
 
-  @sunset_header = Weather.format_header
+  @sunset_header = Weather.sunset_header
+  @fullmoon_header = Weather.fullmoon_header
 
   if session[:id]
     @user = User.find(session[:id])
@@ -69,4 +70,21 @@ post "/users/text_messages/sunset" do
     )
 
   redirect '/'
+end
+
+post "/users/text_messages/fullmoon" do
+  if Fullmoon.fullmoon
+  message = AddonText.moon_text + 'Tonight, there will be a shining full moon.'
+
+  client = Twilioer.start_client
+  client.account.messages.create(
+    :from => "17146602442",
+    :to => User.find_by_id(session[:id]).phone_number,
+    :body => message
+    )
+  redirect '/'
+  else
+    redirect '/'
+
+  end
 end

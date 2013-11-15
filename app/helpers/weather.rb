@@ -25,7 +25,7 @@ module Weather
     state = 'CA'
     city = 'San_Francisco'
 
-    conditions = Weather.start_wunder.forecast_for(state, city)
+    conditions = Weather.start_wunder.conditions_for(state, city)
     c = conditions['current_observation']
     params = { weather:           c['weather'], 
                temp_f:            c['temp_f'], 
@@ -38,7 +38,7 @@ module Weather
     # Condition.create(params)
   end
 
-  def self.sunset_rating  # TODO: rename usages
+  def self.visibility_rating  # TODO: rename usages
     c = Condition.last
     points  = 0
     points += 1 if c.weather                     == 'Calm'
@@ -58,7 +58,7 @@ module Weather
 
   def self.sunset_header
     time = Sunset.last.sunset_time
-    quality = Weather.sunset_rating.upcase
+    quality = Weather.visibility_rating
     tense1, tense2 = 'is', 'will be'
     tense1, tense2 = 'was', 'was' if Time.now.to_s < time
 
@@ -86,32 +86,15 @@ module Weather
     
   end
 
-  def self.fullmoon_rating
-    c = Condition.last
-    points  = 0
-    points += 1 if c.weather                     == 'Calm'
-    points += 1 if c.temp_f.to_i                 >= 60
-    points += 1 if c.wind_string                 == 'Calm'
-    points += 1 if c.visibility_mi.to_i          >= 8
-    points += 1 if c.visibility_mi.to_i          >= 10
-    points += 1 if c.visibility_mi.to_i          >= 12
-    points -= 1 if c.precip_1hr_string.to_f      >= 0.01
-    points -= 3 if c.precip_1hr_string.to_f      >= 0.05
-    return 'Poor'      if points <  2
-    return 'Decent'    if points == 2
-    return 'Good'      if points >= 3
-    return 'Great'     if points == 5
-    return 'Best Ever' if points == 6
-  end
-
   def self.fullmoon_header
-    time = Fullmoon.last.fullmoon
-    quality = Weather.fullmoon_rating.upcase
-    #WONKY
-    tense1, tense2 = 'is', 'will be'
-    tense1, tense2 = 'was', 'was' if Time.now.to_s < time
-
-    "Tonight's full moon #{tense1} at #{time}, and it #{tense2} <span>#{quality}</span>."
+    day = Fullmoon.last.created_at.to_s[0..9]
+    quality = Weather.visibility_rating
+    
+    if Fullmoon.last.fullmoon
+      "Ladies and Gentlemen, there's a full moon tonight with <span>#{quality}</span> visibility."
+    else 
+      "The last full moon was on #{day} and had a <span>#{quality}</span> visibility."
+    end
   end
 
 end

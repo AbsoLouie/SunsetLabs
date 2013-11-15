@@ -6,7 +6,8 @@ class CreateUsersTable < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
       t.string :password_hash
+      t.boolean :subscribe_sunset
+      t.boolean :subscribe_fullmoon
     end
-    
   end
 end

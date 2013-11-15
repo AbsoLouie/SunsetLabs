@@ -1,4 +1,4 @@
-### v0.1.0
+c### v0.1.0
 * Integrate rspec
 * Add rake db:reset task
 * Upgrade rake to 10.1.0
