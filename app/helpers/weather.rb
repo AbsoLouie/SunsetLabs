@@ -17,7 +17,7 @@ module Weather
     astronomy = Weather.start_wunder.astronomy_for(state, city)
     sunset_time = astronomy['sun_phase']['sunset']
     today = Format.time(sunset_time['hour'], sunset_time['minute'])
-    save_to_db(Sunset.new, {sunset_time: today} )
+    save_to_db(:sunset, {sunset_time: today} )
   end
 
   def self.get_conditions
@@ -33,23 +33,30 @@ module Weather
                visibility_mi:     c['visibility_mi'], 
                precip_1hr_string: c['precip_1hr_string'] }
 
-    save_to_db(Condition.new, params)
+    save_to_db(:conditions, params)
+  end
+
+  def self.sunset_rating(weather, temp, wind, visibility, precip)
+    points  = 0
+    points += 1 if weather          == 'Calm'
+    points += 1 if temp.to_i        >= 60
+    points += 1 if wind             == 'Calm'
+    points += 1 if visibility.to_i  >= 8
+    points += 1 if visibility.to_i  >= 10
+    points += 1 if visibility.to_i  >= 12
+    points -= 1 if precip.to_f      >= 0.01
+    points -= 3 if precip.to_f      >= 0.05
+    return 'Poor'      if points <  2
+    return 'Decent'    if points == 2
+    return 'Good'      if points >= 3
+    return 'Great'     if points == 5
+    return 'Best Ever' if points == 6
   end
 
   def save_to_db(type, params)
-    t = type(params)
-    t.save
-    p t
+    Sunset.create(params) if type == :sunset
+    Condition.create(params) if type == :conditions
   end
-
+  
 end
 
-# print 'weather: ', conditions['current_observation']['weather'], "\n"
-# print 'temp_f: ', conditions['current_observation']['temp_f'], "\n"
-# print 'wind_string: ', conditions['current_observation']['wind_string'], "\n"
-# print 'wind_dir: ', conditions['current_observation']['wind_dir'], "\n"
-# print 'visibility_mi: ', conditions['current_observation']['visibility_mi'], "\n"
-# print 'precip_1hr_string: ', conditions['current_observation']['precip_1hr_string'], "\n"
-
-
-# Weather.get_sunset_time #=> "4:58 PM"

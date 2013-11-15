@@ -55,30 +55,22 @@ post "/users/text_messages" do
 end
 
 post "/users/text_messages/sunset" do
+  message = AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
 
-  sunset_time = Sunset.last.sunset_time
-
-  # p HappyThoughts.happy
-
-  p Weather.get_sunset_time
-  p Weather.get_conditions
-  # p AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
-
-  # client = Twilioer.start_client
-  # client.account.messages.create(
-  #   :from => "17146602442",
-  #   :to => User.find_by_id(session[:id]).phone_number,
-  #   :body => HappyThoughts.happy +  sunset_time
-  #   )
+  client = Twilioer.start_client
+  client.account.messages.create(
+    :from => "17146602442",
+    :to => User.find_by_id(session[:id]).phone_number,
+    :body => message
+    )
 
   redirect '/'
 end
 
-#### TODO
+# print 'weather: ', conditions['current_observation']['weather'], "\n"
+# print 'temp_f: ', conditions['current_observation']['temp_f'], "\n"
+# print 'wind_string: ', conditions['current_observation']['wind_string'], "\n"
+# print 'wind_dir: ', conditions['current_observation']['wind_dir'], "\n"
+# print 'visibility_mi: ', conditions['current_observation']['visibility_mi'], "\n"
+# print 'precip_1hr_string: ', conditions['current_observation']['precip_1hr_string'], "\n"
 
-# post '/users/:id/edit' do
-# end
-
-#Logout display some pages
-#flash messages for incorrect passwords, etc..
-#cleanup verify
