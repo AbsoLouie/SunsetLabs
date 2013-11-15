@@ -35,9 +35,10 @@ module Weather
                precip_1hr_string: c['precip_1hr_string'] }
 
     save_to_db(:conditions, params)
+    # Condition.create(params)
   end
 
-  def self.sunset_rating
+  def self.sunset_rating  # TODO: rename usages
     c = Condition.last
     points  = 0
     points += 1 if c.weather                     == 'Calm'
@@ -55,7 +56,7 @@ module Weather
     return 'Best Ever' if points == 6
   end
 
-  def self.format_header
+  def self.sunset_header
     time = Sunset.last.sunset_time
     quality = Weather.sunset_rating.upcase
     tense1, tense2 = 'is', 'will be'
@@ -68,6 +69,49 @@ module Weather
   def save_to_db(type, params)
     Sunset.create(params) if type == :sunset
     Condition.create(params) if type == :conditions
+    Fullmoon.create(params) if type == :fullmoon 
+  end
+
+  ###############################################################
+  #############Fullmoon Functionality############################
+  ###############################################################
+
+  def self.get_fullmoon_today  # TODO: call
+    state = 'CA'
+    city = 'San_Francisco'
+    astronomy = Weather.start_wunder.astronomy_for(state, city)
+    percentIlluminated = astronomy['moon_phase']['percentIlluminated']
+    fullmoon = percentIlluminated.to_i > 97
+    save_to_db(:fullmoon, {fullmoon: fullmoon} )
+    
+  end
+
+  def self.fullmoon_rating
+    c = Condition.last
+    points  = 0
+    points += 1 if c.weather                     == 'Calm'
+    points += 1 if c.temp_f.to_i                 >= 60
+    points += 1 if c.wind_string                 == 'Calm'
+    points += 1 if c.visibility_mi.to_i          >= 8
+    points += 1 if c.visibility_mi.to_i          >= 10
+    points += 1 if c.visibility_mi.to_i          >= 12
+    points -= 1 if c.precip_1hr_string.to_f      >= 0.01
+    points -= 3 if c.precip_1hr_string.to_f      >= 0.05
+    return 'Poor'      if points <  2
+    return 'Decent'    if points == 2
+    return 'Good'      if points >= 3
+    return 'Great'     if points == 5
+    return 'Best Ever' if points == 6
+  end
+
+  def self.fullmoon_header
+    time = Fullmoon.last.fullmoon
+    quality = Weather.fullmoon_rating.upcase
+    #WONKY
+    tense1, tense2 = 'is', 'will be'
+    tense1, tense2 = 'was', 'was' if Time.now.to_s < time
+
+    "Tonight's full moon #{tense1} at #{time}, and it #{tense2} <span>#{quality}</span>."
   end
 
 end
