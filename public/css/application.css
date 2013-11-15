@@ -61,7 +61,20 @@ header #logout_link {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.container_style {
+  border-radius: 9px;
+  background: #eee;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+
 .user_page {
+/*  margin-left: 10px;
+  margin-right: 10px;*/
   width: 550px;
   color: #fff;
 }
