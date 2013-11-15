@@ -1,5 +1,5 @@
 module Twilioer
-  
+
   def start_client
     env_config = YAML.load_file(APP_ROOT.join('config', 'twilio.yaml'))
 
@@ -11,6 +11,7 @@ module Twilioer
   end
 
 end
+
 
 
 # Twillioer.send_message()
