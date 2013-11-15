@@ -148,6 +148,13 @@ task :update_sunsets do
   puts "ending"
 end
 
+task :update_conditions do
+  puts "starting"
+  require APP_ROOT.join('app', 'helpers', 'weather.rb')
+  Weather.get_conditions
+  puts "ending"
+end
+
 task :text_users do
   require APP_ROOT.join('app', 'helpers', 'text_users.rb')
   texting
