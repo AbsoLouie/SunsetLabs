@@ -60,7 +60,9 @@ post "/users/text_messages/sunset" do
 
   # p HappyThoughts.happy
 
-  p AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
+  p Weather.get_sunset_time
+  p Weather.get_conditions
+  # p AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
 
   # client = Twilioer.start_client
   # client.account.messages.create(

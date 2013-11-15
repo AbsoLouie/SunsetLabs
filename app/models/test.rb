@@ -14,12 +14,6 @@ conditions = wunder.conditions_for(state, city)
 #   puts k
 # end
 
-print 'weather: ', conditions['current_observation']['weather'], "\n"
-print 'temp_f: ', conditions['current_observation']['temp_f'], "\n"
-print 'wind_string: ', conditions['current_observation']['wind_string'], "\n"
-print 'wind_dir: ', conditions['current_observation']['wind_dir'], "\n"
-print 'visibility_mi: ', conditions['current_observation']['visibility_mi'], "\n"
-print 'precip_1hr_string: ', conditions['current_observation']['precip_1hr_string'], "\n"
 
 # weather: Mostly Cloudy
 # temp_f: 55.7
