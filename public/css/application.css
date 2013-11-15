@@ -6,6 +6,7 @@ body {
   background-attachment:fixed;
   background-position:center;
   background-size: 100% 100%;
+  font-family: 'Raleway Dots', cursive;
 }
 
 header {
@@ -40,6 +41,8 @@ header #logout_link {
   float: right;
   font-size: 20px;
   color: #fff;
+  font-family: 'Raleway Dots', cursive;
+
 }
 
 
