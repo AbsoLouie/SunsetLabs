@@ -1,5 +1,6 @@
 enable :sessions
 include Twilioer
+
 get '/' do
   if session[:id]
     @user = User.find(session[:id])
