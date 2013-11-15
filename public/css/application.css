@@ -57,6 +57,16 @@ header #logout_link {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.user_page {
+  width: 50%;
+}
+
+#user_page_text {
+  color: #fff;
+  text-align: left;
+  font-size: 30px;
+}
+
 .current_weather {
   margin: 20px auto;
   /*margin-left: 70px;*/
@@ -127,12 +137,23 @@ text-align: center;
 }
 
 .btn {
-  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 10px;
   margin-bottom: 15px;
+  width: 50%;
   /*height: 40px;*/
   /*padding-bottom: 20px;*/
   background-color: #E65C00;
   border: 1px solid #E65C00;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
 
 }
 
