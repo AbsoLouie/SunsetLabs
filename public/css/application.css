@@ -78,6 +78,11 @@ header #logout_link {
 #mid_info {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
+  /*padding-bottom: 150px;*/
+}
+
+.user_cols {
+  height: 400px;
 }
 
 #mid_info p {

@@ -12,14 +12,18 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 ">
     <div class="row">
-      <div class="col-md-4 text-center container_style">
+      <div class="col-md-4 text-center container_style user_cols">
         <h2><strong>Communication Settings</strong></h2>
-        <p>You want sunsets<p>
-        <!-- <br> -->
+        <p>You want sunsets.<p>
+        <p><i class="fa fa-sun-o fa-5x"></i></p>
+        <br>
+        <p>You want full moons.<p>
+        <p><i class="fa fa-moon-o fa-5x"></i></p>
 
       </div>
 
-      <div id="mid_info" class="col-md-4 text-center container_style">
+
+      <div id="mid_info" class="col-md-4 text-center user_cols container_style">
         <h2><strong>User Info</strong></h2>
         <p>Name: <%= @user.name %></p>
         <p>Phone number: <%= @user.phone_number %></p>
@@ -29,7 +33,7 @@
         <br> -->
       </div>
 
-      <div class="col-md-4 text-center container_style">
+      <div class="col-md-4 text-center user_cols container_style">
         <h2><strong>Test Settings</strong></h2>
         <p>Check your settings by sending a test text message with the form below.</p>
 
