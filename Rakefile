@@ -144,6 +144,7 @@ task :initial_setup do
   puts "Starting setup"
   system("rake update_sunsets")
   system("rake update_conditions")
+  system("rake update_fullmoons")
   puts "Ending setup"
 end
 
@@ -162,6 +163,13 @@ task :update_conditions do
   puts "starting"
   require APP_ROOT.join('app', 'helpers', 'weather.rb')
   Weather.get_conditions
+  puts "ending"
+end
+
+task :update_fullmoons do
+  puts "starting"
+  require APP_ROOT.join('app', 'helpers', 'weather.rb')
+  Weather.get_fullmoon_today
   puts "ending"
 end
 

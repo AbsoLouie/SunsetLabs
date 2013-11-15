@@ -1,6 +1,6 @@
 module Format
 
-    def self.time(hour, minute)
+  def self.time(hour, minute)
     suffix = 'AM'
     if hour.to_i > 11
       suffix = 'PM'

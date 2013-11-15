@@ -18,7 +18,7 @@ module Weather
     sunset_time = astronomy['sun_phase']['sunset']
 
     today = Format.time(sunset_time['hour'], sunset_time['minute'])
-    save_to_db(:sunset, {sunset_time: today} )
+    save_to_db(:sunset, {sunset_time: today, military_time: "#{sunset_time['hour']}#{sunset_time['minute']}"} )
   end
 
   def self.get_conditions
@@ -58,11 +58,11 @@ module Weather
 
 
   def self.sunset_header
-    time = Sunset.last.sunset_time
+    latest = Sunset.last
     quality = Weather.visibility_rating
 
     tense1, tense2 = 'is', 'will be'
-    tense1, tense2 = 'was', 'was' if Time.now.to_s < latest.created_at.to_s
+    tense1, tense2 = 'was', 'was' if Time.now.strftime('%H%M').to_i > latest.military_time.to_i
 
     "Today's sunset #{tense1} at #{latest.sunset_time}, and it #{tense2} <span>#{quality}</span>."
   end
