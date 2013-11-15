@@ -5,6 +5,9 @@ include Format
 include AddonText
 
 get '/' do
+
+  @sunset_header = Weather.format_header
+
   if session[:id]
     @user = User.find(session[:id])
     erb :user_homepage
@@ -54,7 +57,6 @@ post "/users/text_messages" do
 end
 
 post "/users/text_messages/sunset" do
-
   sunset_time = Sunset.last.sunset_time
 
   message = AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
@@ -68,12 +70,3 @@ post "/users/text_messages/sunset" do
 
   redirect '/'
 end
-
-#### TODO
-
-# post '/users/:id/edit' do
-# end
-
-#Logout display some pages
-#flash messages for incorrect passwords, etc..
-#cleanup verify
