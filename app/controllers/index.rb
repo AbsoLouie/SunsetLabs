@@ -1,5 +1,8 @@
 enable :sessions
 include Twilioer
+include Weather
+include Format
+include AddonText
 
 get '/' do
   if session[:id]
@@ -10,11 +13,11 @@ get '/' do
   end
 end
 
-get '/users/signup' do
+get '/users/new' do
   erb :signup
 end
 
-post '/users/register' do
+post '/users' do
   user = User.create(params[:user])
   session[:id] = user.id
   redirect '/'
@@ -52,18 +55,19 @@ end
 
 post "/users/text_messages/sunset" do
 
-wunder = Wunderground.new('4e49c02d3a1533bd')
-state = 'CA'
-city = 'San_Francisco'
-astronomy = wunder.astronomy_for(state, city)
+  sunset_time = Sunset.last.sunset_time
 
+  # p HappyThoughts.happy
 
-  client = Twilioer.start_client
-  client.account.messages.create(
-    :from => "17146602442",
-    :to => User.find_by_id(session[:id]).phone_number,
-    :body => astronomy['sun_phase']['sunset']
-    )
+  p AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
+
+  # client = Twilioer.start_client
+  # client.account.messages.create(
+  #   :from => "17146602442",
+  #   :to => User.find_by_id(session[:id]).phone_number,
+  #   :body => HappyThoughts.happy +  sunset_time
+  #   )
+
   redirect '/'
 end
 

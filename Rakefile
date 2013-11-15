@@ -142,5 +142,5 @@ task :default  => :spec
 desc "This task is called by the Heroku scheduler add-on"
 
 task :update_sunsets do
-  ruby "./app/helpers/test.rb"
+  "./app/helpers/test.rb"
 end

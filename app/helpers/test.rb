@@ -1,1 +1,1 @@
-puts "hello from test.rb"
+p "hello from test.rb"
