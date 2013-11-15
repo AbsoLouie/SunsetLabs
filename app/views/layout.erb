@@ -24,13 +24,16 @@
 <body class="blur_bg">
 
   <header >
-    <h1 id="name">Sunset Labs</h1>
+    <h1 id="name"><a href="/">Sunset Labs</a>
+
+    <% if session[:id] %>
+      <a id="logout_link" href="/users/logout">Logout</a>
+    <% end %>
+</h1>
   </header>
 
   <%= yield %>
-  <% if session[:id] %>
-    <a href="/users/logout">Logout!</a>
-  <% end %>
+
 
 </body>
 </html>

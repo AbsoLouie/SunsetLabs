@@ -3,48 +3,81 @@ body {
   padding-bottom: 40px;
   /*background-color: black;*/
   background: url('http://www.uiuos.net/static/C2wRF2j/sunset-wallpaper-desktop-background.jpg');
-  /*background-repeat:no-repeat;*/
-background-attachment:fixed;
-background-position:center;
-  background-size: 100%;
-  /*font-family: 'Source Sans Pro', sans-serif;*/
+  background-attachment:fixed;
+  background-position:center;
+  background-size: 100% 100%;
 }
 
 header {
   text-align: center;
-  /*font-family: 'Source Sans Pro', sans-serif;*/
   background-color: black;
-  /*opacity: 0.4;*/
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   color: rgba(255,255,255);
-  padding: 6px 0 18px 0;
-/*  font-family: 'Alegreya', serif;
-*/
+  padding: 1px 0 1px 0;
+  /*position: relative;*/
+  /*display: inline-table;*/
+
 }
 
 header #name {
-  /*font-family: 'Days One', sans-serif;*/
-  /*font-family: 'Magra', sans-serif;*/
+  text-align: left;
   font-family: 'Signika', sans-serif;
-/*  font-family: 'Sintony', sans-serif;  font-size: 80px;
-*/  font-weight: bold;
+  font-weight: bold;
   font-size: 60px;
+  margin-left: 35px;
+  color: rgba(255,200,0,.8);
+}
+
+#name a {
   color: rgba(255,200,0,.8);
 
 }
 
+header #logout_link {
+  text-align: right;
+  margin-right: 15px;
+  margin-top: 25px;
+  float: right;
+  font-size: 20px;
+  color: #fff;
+}
+
+
+
 .container {
-  margin: 20px auto;
-  margin-right: 50px;
+  /*margin: 20px auto;*/
+  /*margin-right: 50px;*/
+  margin-top: 40px;
   width: 350px;
   padding: 0px 20px 20px 20px;
-  border: 1px solid grey;
+  /*border: 1px solid grey;*/
   border-radius: 9px;
   background: #eee;
-  float: right;
-  background-color: rgba(255, 255, 255, 0.4);
+  /*float: right;*/
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.current_weather {
+  margin: 20px auto;
+  /*margin-left: 70px;*/
+  margin-top: 40px;
+  /*width: 350px;*/
+  padding: 16px 60px 20px 60px;
+  /*border: 1px solid grey;*/
+  border-radius: 15px;
+  /*background: #eee;*/
+  /*float: left;*/
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  text-align: center;
+  font-weight: bold;
+  color: rgba(0,0,0,.6);
 
 }
+
+.current_weather h1 {
+  font-size: 40px;
+}
+
 
 #user_homepage, .container, #signup, #login {
 text-align: center;
@@ -85,13 +118,34 @@ text-align: center;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.form-control {
+  margin-top: 5px;
+  border: 1px solid #E65C00;
+  /*margin-bottom: 10px;*/
+  /*border-top-left-radius: 0;*/
+  /*border-top-right-radius: 0;*/
 }
 
 .btn {
-  height: 40px;
-  padding-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  /*height: 40px;*/
+  /*padding-bottom: 20px;*/
+  background-color: #E65C00;
+  border: 1px solid #E65C00;
+
+}
+
+.btn:hover {
+  background-color: #E65C00;
+  border: 1px solid black;
+}
+
+#create_new {
+  color: #fff;
+}
+
+
+.form-signin-heading {
+  color: #fff;
 }
