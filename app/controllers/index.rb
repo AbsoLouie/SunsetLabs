@@ -4,7 +4,6 @@ include Weather
 include Format
 include AddonText
 
-
 get '/' do
 
   @sunset_header = Weather.format_header
@@ -58,6 +57,7 @@ post "/users/text_messages" do
 end
 
 post "/users/text_messages/sunset" do
+  sunset_time = Sunset.last.sunset_time
 
   message = AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
 
@@ -70,11 +70,3 @@ post "/users/text_messages/sunset" do
 
   redirect '/'
 end
-
-  # p Sunset.last.sunset_time
-  # p c = Condition.last
-  # p Weather.sunset_rating(c.weather, 
-  #                         c.temp_f, 
-  #                         c.wind_string, 
-  #                         c.visibility_mi, 
-  #                         c.precip_1hr_string)

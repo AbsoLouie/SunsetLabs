@@ -1,5 +1,5 @@
 require 'rake'
-require 'rspec/core/rake_task'
+# require 'rspec/core/rake_task'
 
 require ::File.expand_path('../config/environment', __FILE__)
 
@@ -133,6 +133,17 @@ task "console" do
 end
 
 desc "Run the specs"
-RSpec::Core::RakeTask.new(:spec)
+# RSpec::Core::RakeTask.new(:spec)
 
 task :default  => :spec
+
+##### Scheduled Tasks ##########
+
+desc "These tasks is called by the Heroku scheduler add-on"
+
+task :update_sunsets do
+  puts "starting"
+  require APP_ROOT.join('app', 'helpers', 'weather.rb')
+  Weather.get_sunset_time
+  puts "ending"
+end
