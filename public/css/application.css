@@ -2,7 +2,8 @@ body {
   padding-top: 0;
   padding-bottom: 40px;
   /*background-color: black;*/
-  background: url('http://www.uiuos.net/static/C2wRF2j/sunset-wallpaper-desktop-background.jpg');
+  /*background: url('http://www.uiuos.net/static/C2wRF2j/sunset-wallpaper-desktop-background.jpg');*/
+  background: url('../sunset2.jpg');
   background-attachment:fixed;
   background-position:center;
   background-size: 100% 100%;
