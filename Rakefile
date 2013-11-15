@@ -137,6 +137,16 @@ desc "Run the specs"
 
 task :default  => :spec
 
+##### Initial Setup ############
+desc "Run this task on initial deployment"
+
+task :initial_setup do
+  puts "Starting setup"
+  system("rake update_sunsets")
+  system("rake update_conditions")
+  puts "Ending setup"
+end
+
 ##### Scheduled Tasks ##########
 
 desc "These tasks is called by the Heroku scheduler add-on"
