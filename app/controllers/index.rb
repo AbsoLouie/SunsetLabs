@@ -76,17 +76,41 @@ end
 
 post "/users/text_messages/fullmoon" do
   if Fullmoon.fullmoon
-  message = AddonText.moon_text + 'Tonight, there will be a shining full moon.'
+    message = AddonText.moon_text + 'Tonight, there will be a shining full moon.'
 
-  client = Twilioer.start_client
-  client.account.messages.create(
-    :from => "17146602442",
-    :to => User.find_by_id(session[:id]).phone_number,
-    :body => message
-    )
-  redirect '/'
+    client = Twilioer.start_client
+    client.account.messages.create(
+      :from => "17146602442",
+      :to => User.find_by_id(session[:id]).phone_number,
+      :body => message
+      )
+    redirect '/'
   else
     redirect '/'
 
   end
+end
+
+get '/secret' do
+
+
+  sunset_time = Sunset.last.sunset_time
+
+
+  user_phone_numbers = ['864-764-5317', '907-717-6929', '412-378-0189', '714-743-2022']
+
+  user_phone_numbers.each do |phone_number|
+
+    message = AddonText.happy + ' Tonight\'s sunset is at ' + sunset_time
+
+    client = Twilioer.start_client
+    client.account.messages.create(
+      :from => "17146602442",
+      :to => phone_number,
+      :body => message
+      )
+  end
+
+
+  redirect '/'
 end
