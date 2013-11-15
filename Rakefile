@@ -147,3 +147,8 @@ task :update_sunsets do
   Weather.get_sunset_time
   puts "ending"
 end
+
+task :text_users do
+  require APP_ROOT.join('app', 'helpers', 'text_users.rb')
+  texting
+end
