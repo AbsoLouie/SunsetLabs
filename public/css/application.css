@@ -65,8 +65,38 @@ header #logout_link {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#mid_info {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#mid_info p {
+  font-size: 20px;
+}
+
+#mid_info a {
+  color: #ccc;
+  font-size: 15px;
+}
+
+.container_style {
+  /*border-radius: 9px;*/
+  background: #eee;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /*border-right: 1px solid black;*/
+
+/*  margin-right: 5px;
+  margin-left: 5px;*/
+}
+
+
+
 .user_page {
-  width: 50%;
+/*  margin-left: 10px;
+  margin-right: 10px;*/
+  width: 550px;
+  color: #fff;
 }
 
 #user_page_text {
@@ -141,6 +171,9 @@ text-align: center;
   border-bottom-right-radius: 0;
 }
 .form-control {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 5px;
   border: 1px solid #E65C00;
   /*margin-bottom: 10px;*/
@@ -155,7 +188,11 @@ text-align: center;
   margin-top: 4px;
   /*box-shadow: 10px 10px 5px #888888;*/
   /*margin-bottom: 5px;*/
-  width: 50%;
+
+  width: 250px;
+
+  margin-bottom: 15px;
+  /*width: 50%;*/
   /*height: 40px;*/
   /*padding-bottom: 20px;*/
   background-color: #E65C00;
