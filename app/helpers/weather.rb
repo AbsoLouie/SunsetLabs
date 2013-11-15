@@ -57,7 +57,10 @@ module Weather
   def self.format_header
     time = Sunset.last.sunset_time
     quality = Weather.sunset_rating.upcase
-    "Today's sunset #{tense1} at #{time}, and it #{tense2} be <span>#{quality}</span>"
+    tense1, tense2 = 'is', 'will be'
+    tense1, tense2 = 'was', 'was' if Time.now.to_s < time
+
+    "Today's sunset #{tense1} at #{time}, and it #{tense2} <span>#{quality}</span>."
   end
 
 
