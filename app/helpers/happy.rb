@@ -11,7 +11,9 @@ def happy
 end
 
 def moon_text
-['Three things cannot be long hidden: the sun,the moon, and the truth.  -Buddha', 'There are nights when the wolves are silent and only the moon howls.  -George Carlin', 'The moon puts on an elegant show, different in every shape, color, and nuance.  -Arthur Smith'
+['Three things cannot be long hidden: the sun,the moon, and the truth.  -Buddha-',
+  'There are nights when the wolves are silent and only the moon howls.  -George Carlin-',
+  'The moon puts on an elegant show, different in every shape, color, and nuance.  -Arthur Smith-'
   ].sample
 end
 
